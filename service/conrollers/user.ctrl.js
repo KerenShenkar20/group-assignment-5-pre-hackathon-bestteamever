@@ -16,16 +16,16 @@ exports.userDbcontroller = {
     },
     updateUser(req, res) {
         var key = req.body.id
-        for(i in usersjson)
+        for(i in userDbcontroller)
         {
            if (userDbcontroller[i]["id"] == key){
-            userDbcontroller[i]["first_name"] = req.body.first_name
-            userDbcontroller[i]["last_name"] = req.body.last_name 
-            userDbcontroller[i]["email"] = req.body.email 
-            userDbcontroller[i]["gender"] = req.body.gender 
-            userDbcontroller[i]["avatar"] = req.body.avatar 
-            userDbcontroller[i]["color"] = req.body.color
-            userDbcontroller[i]["job"] = req.body.job
+                userDbcontroller[i]["first_name"] = req.body.first_name
+                userDbcontroller[i]["last_name"] = req.body.last_name 
+                userDbcontroller[i]["email"] = req.body.email 
+                userDbcontroller[i]["gender"] = req.body.gender 
+                userDbcontroller[i]["avatar"] = req.body.avatar 
+                userDbcontroller[i]["color"] = req.body.color
+                userDbcontroller[i]["job"] = req.body.job
                res.send(`User ${key} has been updated`).on('finish');
             }
         }
