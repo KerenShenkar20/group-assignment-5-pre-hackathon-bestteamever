@@ -3,6 +3,8 @@ const logger=require("morgan");
 const app=express();
 const port=process.env.PORT||3000;
 
+const {UserRouter} = require("./routers/userRouter")
+
 app.use((req, res, next)=>{
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Origin', 'Origin, X-requested-With, Content-Type, Accept');
@@ -13,6 +15,8 @@ app.use((req, res, next)=>{
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(logger("combined")); 
+
+app.use("/api/users", UserRouter);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
