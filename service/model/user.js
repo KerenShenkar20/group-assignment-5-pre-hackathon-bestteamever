@@ -12,7 +12,7 @@ const UserSchema = new Schema({
     avatar:{type:String},
     color:{type:String},
     job:{type:String}
-}, { conection: "Users" });
+}, { conection: "users" });
 const User = model("User", UserSchema);
 
 module.exports = User;
