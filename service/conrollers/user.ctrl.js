@@ -44,12 +44,8 @@ exports.userDbcontroller = {
         res.send("user dose not exiest").on('finish');
     },
     deleteUser(req, res) {
-        var key = req.params.id    
-        for(i in userDbcontroller){
-           if(key == userDbcontroller[i]["id"]){
-               delete userDbcontroller[i]
-               res.send(`User ${key} has been deleted`).on('finish');
-           }
-        }
+        User.deleteOne({id:req.params.id})
+            .then(docs=>{res.json(docs)})
+            .catch(err=>console.log(`Error deleting user from db : ${req.params.id}`));
     }
 }
