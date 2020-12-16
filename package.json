@@ -1,0 +1,20 @@
+{
+  "name": "group-assignment-5-pre-hackathon-bestteamever",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KerenShenkar20/group-assignment-5-pre-hackathon-bestteamever.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KerenShenkar20/group-assignment-5-pre-hackathon-bestteamever/issues"
+  },
+  "homepage": "https://github.com/KerenShenkar20/group-assignment-5-pre-hackathon-bestteamever#readme"
+}
