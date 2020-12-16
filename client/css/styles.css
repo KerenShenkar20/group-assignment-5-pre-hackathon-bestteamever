@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header, main, footer, nav, aside, section, div  {
+    display: block;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#wrapper h1, 
+#wrapper h2 {
+    text-align: center;
+}
+
+#content {
+    display: flex;
+}
+
+#users-list,
+#user-operations {
+    width: 50%;
+}
+
+#user-operations > #buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+#user-operations button {
+    width: 80px;
+}
+
+#add-update-user {
+    width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}

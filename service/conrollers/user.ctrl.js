@@ -8,10 +8,22 @@ exports.userDbcontroller = {
             .catch(err => console.log('Erorr getting the data from db: ${err}'));
     },
     getUsers(req, res) {
+        User.find(req.query)
+        .then(docs => { res.json(docs) })
+        .catch(err => console.log('Eroor getting the data from db: ${err}'));
 
     },
 
     addUser(req, res) {
+        const user = new User(req.body);
+        const result = newUser.save();
+        if (result) {
+            res.json(result)
+        }
+        else {
+            res.status(404).send("Error saving a user");
+        }
+
 
     },
     updateUser(req, res) {
