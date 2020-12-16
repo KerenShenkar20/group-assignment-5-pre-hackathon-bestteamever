@@ -15,6 +15,15 @@ exports.userDbcontroller = {
     },
 
     addUser(req, res) {
+        const user = new User(req.body);
+        const result = newUser.save();
+        if (result) {
+            res.json(result)
+        }
+        else {
+            res.status(404).send("Error saving a user");
+        }
+
 
     },
     updateUser(req, res) {
