@@ -1,5 +1,5 @@
 const express= require("express");
-const express=require("morgan");
+const logger=require("morgan");
 const app=express();
 const port=process.env.PORT||3000;
 
