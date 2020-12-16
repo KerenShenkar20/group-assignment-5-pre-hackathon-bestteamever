@@ -23,8 +23,9 @@ exports.userDbcontroller = {
             userDbcontroller[i]["last_name"] = req.body.last_name 
             userDbcontroller[i]["email"] = req.body.email 
             userDbcontroller[i]["gender"] = req.body.gender 
-            userDbcontroller[i]["country"] = req.body.country 
+            userDbcontroller[i]["avatar"] = req.body.avatar 
             userDbcontroller[i]["color"] = req.body.color
+            userDbcontroller[i]["job"] = req.body.job
                res.send(`User ${key} has been updated`).on('finish');
             }
         }
