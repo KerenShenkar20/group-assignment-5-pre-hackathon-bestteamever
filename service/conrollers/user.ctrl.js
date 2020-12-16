@@ -39,5 +39,6 @@ exports.userDbcontroller = {
                res.send(`User ${key} has been deleted`).on('finish');
            }
         }
+        res.send("user dose not exiest").on('finish');
     }
 }
