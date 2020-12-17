@@ -15,7 +15,7 @@ exports.userDbcontroller = {
     },
 
     addUser(req, res) {
-        const user = new User(req.body);
+        const newUser = new User(req.body);
         const result = newUser.save();
         if (result) {
             res.json(result)
