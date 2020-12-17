@@ -9,8 +9,8 @@ exports.userDbcontroller = {
     },
     getUsers(req, res) {
         User.find(req.query)
-        .then(docs => { res.json(docs) })
-        .catch(err => console.log('Eroor getting the data from db: ${err}'));
+            .then(docs => { res.json(docs) })
+            .catch(err => console.log('Eroor getting the data from db: ${err}'));
 
     },
 
@@ -27,25 +27,21 @@ exports.userDbcontroller = {
 
     },
     updateUser(req, res) {
-        var key = req.body.id
-        for(i in userDbcontroller)
-        {
-           if (userDbcontroller[i]["id"] == key){
-                userDbcontroller[i]["first_name"] = req.body.first_name
-                userDbcontroller[i]["last_name"] = req.body.last_name 
-                userDbcontroller[i]["email"] = req.body.email 
-                userDbcontroller[i]["gender"] = req.body.gender 
-                userDbcontroller[i]["avatar"] = req.body.avatar 
-                userDbcontroller[i]["color"] = req.body.color
-                userDbcontroller[i]["job"] = req.body.job
-               res.send(`User ${key} has been updated`).on('finish');
-            }
-        }
-        res.send("user dose not exiest").on('finish');
+        User.updateOne({ id: req.params.id }, {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            gender: req.body.gender,
+            avatar: req.body.avatar,
+            color: req.body.color,
+            job: req.body.job
+        })
+            .then(docs => { res.json(docs) })
+            .catch(err => console.log(`Error update user from db : ${req.params.id}`));
     },
     deleteUser(req, res) {
-        User.deleteOne({id:req.params.id})
-            .then(docs=>{res.json(docs)})
-            .catch(err=>console.log(`Error deleting user from db : ${req.params.id}`));
+        User.deleteOne({ id: req.params.id })
+            .then(docs => { res.json(docs) })
+            .catch(err => console.log(`Error deleting user from db : ${req.params.id}`));
     }
 }
