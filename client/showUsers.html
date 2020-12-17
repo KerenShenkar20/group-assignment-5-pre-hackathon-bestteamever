@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-      <script src="js/hackathon.js"></script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -49,7 +47,7 @@
           </div>
         </form>
         <div class="container">
-            <table class="table">
+            <table id="usersTable" class="table">
               <thead>
                 <tr>
                   <th>id</th>
@@ -62,29 +60,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>12121212</td>
-                  <td>linoy</td>
-                  <td>chubok</td>
-                  <td>linoychubok@gmail.com</td>
-                  <td>female</td>
-                  <td><img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar"></td>
-                  <td>student</td>
-                </tr>
-                <tr>
-                    <td>221212121</td>
-                    <td>yahli</td>
-                    <td>sofer</td>
-                    <td>yahlisofer@gmail.com</td>
-                    <td>male</td>
-                    <td><img src="https://www.w3schools.com/w3images/avatar2.png" alt="Avatar" class="avatar"></td>
-                    <td>student</td>
-                </tr>
+                <!-- dynamic -->
               </tbody>
             </table>
           </div> 
         </div>
       </main>   
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+      <script src="js/logics.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </body>
