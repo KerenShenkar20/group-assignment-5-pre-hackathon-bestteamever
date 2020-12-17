@@ -1,11 +1,21 @@
 $(document).ready(function () {
     getAllUsers();
-    // operationsListeners();
+    userOperationsListeners();
 });
 
 function getAllUsers() {
     $.ajax({
-        url: 'http://localhost:3000/api/users',
+        url: `http://localhost:3000/api/users`,
+        type: 'GET',
+        success: function(users) {
+            recreateUsersTable(users);
+        }
+    });
+}
+
+function getAllUsersByFilter(str) {
+    $.ajax({
+        url: `http://localhost:3000/api/users${str}`,
         type: 'GET',
         success: function(users) {
             recreateUsersTable(users);
@@ -22,11 +32,12 @@ function getUserById(userId) {
     });
 }
 
-function updateUsersById(userId) {
+function updateUsersById(userId, jsonFile) {
     $.ajax({
         url: `http://localhost:3000/api/users/${userId}`,
         type: 'PUT',
-        success: function(user){           
+        data: jsonFile,
+        success: function(response){    
         }
     });
 }
@@ -56,17 +67,40 @@ function recreateUsersTable(users) {
     } 
 }
 
+
+
 function userOperationsListeners() {
-    $("#get-button").click(() => {
-        $("#get-delete-restaurant").css("display", "block");
-        $("#get-delete-do").text("Get");
+    $("#updateBtn").click(() => {
+        const id = $("#idInput").val();;
+        const first_name = $("#first_nameInput").val();
+        const last_name = $("#last_nameInput").val();
+        const email = $("#emailInput").val();
+        const gender = $("input[type='radio']:checked").val()
+        const avatar = $("#avatarUpload").val();
+        const color = $("#colorInput").val();
+        const job = $("#jobInput").val();
+        updateUsersById(id, JSON.stringify([first_name, last_name, email, gender, avatar, color, job]));
+        alert(gender);
+
     });
 
-
-    $("#update-button").click(() => {
-        $("#add-update-user").css("display", "none");
-        alert("Update");
+    $("#searchBtn").click(() => {
+        const gender = $("input[type='radio']:checked").val()
+        const email = $("#emailInput").val();
+        const job = $("#jobInput").val();
+        let str = "?";
+        if(gender)
+        str += `gender=${gender}`;
+        if(email)
+        str += `&email=${email}`;
+        if(job)
+        str += `&job=${job}`;
+        else if(!gender && !email && !job){
+            str = "";
+        }
+        getAllUsersByFilter(str);
     });
+
 
 
 }
