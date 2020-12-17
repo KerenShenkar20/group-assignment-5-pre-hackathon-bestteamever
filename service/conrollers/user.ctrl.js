@@ -8,7 +8,14 @@ exports.userDbcontroller = {
             .catch(err => console.log('Erorr getting the data from db: ${err}'));
     },
     getUsers(req, res) {
-        User.find(req.query)
+        let filter= { };
+        if('job' in req.query)
+            filter.job=req.query.job;
+        if('gender' in req.query)
+            filter.gender=req.query.gender;
+        if('email' in req.query)
+            filter.email= req.query.email;
+        User.find(filter)
             .then(docs => { res.json(docs) })
             .catch(err => console.log('Error getting the data from db: ${err}'));
 
