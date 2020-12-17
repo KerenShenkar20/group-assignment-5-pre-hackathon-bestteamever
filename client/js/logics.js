@@ -26,13 +26,12 @@ function updateUsersById(userId) {
     $.ajax({
         url: `http://localhost:3000/api/users/${userId}`,
         type: 'PUT',
-        success: function(user){
-            
+        success: function(user){           
         }
     });
 }
 
-function appendTableRow(id, first_name, last_name, email, gender, avatar, job)
+function appendTableRow(id, first_name, last_name, email, gender, avatar,color, job)
 {
     let tableRow = "<tr><td>$userId</td><td>$first_name</td><td>$last_name</td><td>$email</td><td>$gender</td><td><img src='$avatar' alt='Avatar' class='avatar'></td><td>$job</td></tr>";
     tableRow = tableRow.replace("$userId",id);
@@ -43,6 +42,7 @@ function appendTableRow(id, first_name, last_name, email, gender, avatar, job)
     tableRow = tableRow.replace("$avatar",avatar);        
     tableRow = tableRow.replace("$job",job);        
     $("#usersTable tbody").append(tableRow);
+    $('#usersTable tr:last').css("color", color);
 }
 
 function recreateUsersTable(users) {
@@ -51,7 +51,7 @@ function recreateUsersTable(users) {
     if (usersLen) {
         $('table').append('<tbody></tbody>');
         for (let i = 0; i < usersLen; i++) {
-            appendTableRow(users[i].id, users[i].first_name, users[i].last_name, users[i].email, users[i].gender, users[i].avatar, users[i].job)
+            appendTableRow(users[i].id, users[i].first_name, users[i].last_name, users[i].email, users[i].gender, users[i].avatar, users[i].color, users[i].job)
         }
     } 
 }
