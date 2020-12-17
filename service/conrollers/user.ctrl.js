@@ -10,19 +10,24 @@ exports.userDbcontroller = {
     getUsers(req, res) {
         User.find(req.query)
             .then(docs => { res.json(docs) })
-            .catch(err => console.log('Eroor getting the data from db: ${err}'));
+            .catch(err => console.log('Error getting the data from db: ${err}'));
 
     },
 
     addUser(req, res) {
         const newUser = new User(req.body);
-        const result = newUser.save();
-        if (result) {
-            res.json(result)
-        }
-        else {
-            res.status(404).send("Error saving a user");
-        }
+        const result = newUser.save()
+            .then(result => {
+                if (result) {
+                    res.json(result)
+        
+                }
+                else {
+                    res.status(404).send("Error saving a user");
+                }
+            })
+            .catch(err => console.log('Error saving the data from db: ${err}'))
+        
 
 
     },
