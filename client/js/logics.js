@@ -32,7 +32,7 @@ function getUserById(userId) {
     });
 }
 
-function updateUsersById(userId, jsonFile) {
+function updateUserById(userId, jsonFile) {
     $.ajax({
         url: `http://localhost:3000/api/users/${userId}`,
         type: 'PUT',
@@ -67,7 +67,15 @@ function recreateUsersTable(users) {
     } 
 }
 
-
+function cleanUpdateData(data) {
+    const obj = data;
+    for (var propName in obj) {
+        if (obj[propName] === '') {
+          delete obj[propName];
+        }
+      }
+    return obj;
+}
 
 function userOperationsListeners() {
     $("#updateBtn").click(() => {
@@ -79,8 +87,16 @@ function userOperationsListeners() {
         const avatar = $("#avatarUpload").val();
         const color = $("#colorInput").val();
         const job = $("#jobInput").val();
-        updateUsersById(id, JSON.stringify([first_name, last_name, email, gender, avatar, color, job]));
-        alert(gender);
+        const userObj = {
+            id,
+            job,
+            email,
+            color,
+            gender,
+            first_name,
+            last_name,
+        }
+        updateUserById(id, cleanUpdateData(userObj));
 
     });
 
