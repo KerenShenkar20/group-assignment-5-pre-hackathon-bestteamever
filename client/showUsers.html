@@ -1,54 +1,91 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-        <script src="js/hackathon.js"></script>
+  <head>
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+      <script src="js/hackathon.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/styles.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/styles.css"/>
+      
+      <title>Client side</title>
+  </head>
+  <body>
+    <header>
+      <div class="back">
+        <a href="index.html">&larr; Back</a>
+      </div>
+      <h1>Show users</h1>
+    </header>
+    <main>
+      <div id="wrapper2">
+        <form>
+          <div class="form-group row">
+            <label class="col-sm-2">Gender:</label>
+            <div class="col-sm-4">
+              <label class="radio-inline"><input id="radio1" type="radio" name="optradio" checked>Male</label>
+              <label class="radio-inline"><input id="radio2" type="radio" name="optradio" >Female</label>
+            </div>
+          </div>
 
-        <title>Client side</title>
-    </head>
-    <body>
-        <div id="wrapper">
-            <div class="container">
-                <h2>Users Table</h2>
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>id</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Email</th>
-                      <th>Gender</th>
-                      <th>Avatar</th>
-                      <th>Job</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>12121212</td>
-                      <td>linoy</td>
-                      <td>chubok</td>
-                      <td>linoychubok@gmail.com</td>
-                      <td>female</td>
-                      <td></td>
-                      <td>student</td>
-                    </tr>
-                    <tr>
-                        <td>221212121</td>
-                        <td>yahli</td>
-                        <td>sofer</td>
-                        <td>yahlisofer@gmail.com</td>
-                        <td>male</td>
-                        <td></td>
-                        <td>student</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>    
+          <div class="form-group row">
+            <label for="email" class="col-sm-4 col-md-2 col-form-label">Email:</label>
+            <div class="col-sm-4">
+              <input type="email" class="form-control" id="email">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="job" class="col-sm-4 col-md-2 col-form-label">Job:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="job">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </div>
+        </form>
+        <div class="container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Gender</th>
+                  <th>Avatar</th>
+                  <th>Job</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>12121212</td>
+                  <td>linoy</td>
+                  <td>chubok</td>
+                  <td>linoychubok@gmail.com</td>
+                  <td>female</td>
+                  <td><img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar"></td>
+                  <td>student</td>
+                </tr>
+                <tr>
+                    <td>221212121</td>
+                    <td>yahli</td>
+                    <td>sofer</td>
+                    <td>yahlisofer@gmail.com</td>
+                    <td>male</td>
+                    <td><img src="https://www.w3schools.com/w3images/avatar2.png" alt="Avatar" class="avatar"></td>
+                    <td>student</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> 
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    </body>
+      </main>   
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </body>
 </html>

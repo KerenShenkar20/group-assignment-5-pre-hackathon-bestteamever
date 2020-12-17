@@ -9,34 +9,48 @@ header, main, footer, nav, aside, section, div  {
 
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow-x: hidden;
 }
 
-#wrapper h1, 
-#wrapper h2 {
+#wrapper {
+    width: 1000px;
+    margin: 0px auto;
+    justify-content: center;
     text-align: center;
 }
 
-#content {
-    display: flex;
+#wrapper2 {
+    margin-top:3%;
 }
 
-#users-list,
-#user-operations {
-    width: 50%;
+.mainbtns {
+    margin: 10%;
+    padding: 3%;
 }
 
-#user-operations > #buttons {
-    display: flex;
-    justify-content: space-around;
+#btns-container a{
+    text-decoration: none;
+    color: white;
 }
 
-#user-operations button {
-    width: 80px;
+img {
+width: 5vw;
+height: 5vw;
 }
 
-#add-update-user {
-    width: 270px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
+
+form, header {
+    margin-left: 7%;
+}
+
+h1 {
+    margin-bottom: 50px;
+}
+
+.back a {
+    color: black;
+    background-color: rgb(160, 160, 255);
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
 }
